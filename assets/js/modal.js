@@ -26,7 +26,7 @@ function closeModal() {
 }
 
 btnModalNao.addEventListener('click', ()=>{
-    window.location.replace('/paginas/erro-menor-idade.html')
+    window.location.replace('/zeca-delivery/paginas/erro-menor-idade.html')
     sessionStorage.setItem('maiorDeIdade', 'Não');
 })
 
