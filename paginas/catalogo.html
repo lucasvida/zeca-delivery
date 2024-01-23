@@ -15,6 +15,9 @@
     <link rel="icon" href="../assets/img/favico.png" type="image/x-icon">
     <!-- CSS  -->
     <link rel="stylesheet" href="../assets/css/principal.css">
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css">
+    </noscript>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +27,22 @@
     <!-- Title  -->
     <title> Zeca Delivery - Projeto Educacional </title>
 </head>
-
 <body>
+    <noscript>
+        <div class="container erro-center">
+            <img src="../assets/img/no-script.png" alt="Erro de Java Script"> <br><br>
+            <a href="https://support.google.com/admanager/answer/12654?hl=pt-BR"> Como habilitar o Java Script </a>
+        </div>
+    </noscript>
+    <section id="modal">
+        <div class="modal-text">
+           Você tem 18 ou mais anos ?
+           <div class="btn-modal">
+               <button id="btn-modal-nao">NÃO</button>
+               <button id="btn-modal-sim">SIM</button>
+           </div>
+        </div>
+    </section>
     <header>
         <div class="container">
             <nav class="menu-principal">
@@ -53,8 +70,9 @@
         </div>
     </header>
     <main>
-
-
+        <div class="container">
+            <h2 style="text-align: center;"> CONTEÚDO EM CONSTRUÇÃO</h2>
+        </div>
     </main>
     <footer>
         <div class="container">
@@ -112,7 +130,7 @@
             e marca registrada da AMBEV.
         </div>
     </footer>
-    <script src="assets/js/slider-home.js"></script>
+    <script src="/assets/js/modal.js"></script>
 </body>
 
 </html>

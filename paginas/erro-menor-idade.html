@@ -15,6 +15,9 @@
     <link rel="icon" href="../assets/img/favico.png" type="image/x-icon">
     <!-- CSS  -->
     <link rel="stylesheet" href="../assets/css/principal.css">
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css">
+    </noscript>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +29,12 @@
 </head>
 
 <body>
+    <noscript>
+        <div class="container erro-center">
+            <img src="../assets/img/no-script.png" alt="Erro de Java Script"> <br><br>
+            <a href="https://support.google.com/admanager/answer/12654?hl=pt-BR"> Como habilitar o Java Script </a>
+        </div>
+    </noscript>
     <header>
         <div class="container">
             <nav class="menu-principal">
@@ -42,7 +51,7 @@
                         <a href="../paginas/sobre.html">
                             <li>Sobre</li>
                         </a>
-                        <a href="../login.html">
+                        <a href="./login.html">
                             <button class="btn-login">
                                 LOGIN
                             </button>
@@ -53,8 +62,9 @@
         </div>
     </header>
     <main>
-
-
+        <div class="container erro-center">
+            <img src="../assets/img/erro-menor-de-idade.png" alt="Erro Menor de Idade">
+        </div>
     </main>
     <footer>
         <div class="container">
@@ -112,7 +122,6 @@
             e marca registrada da AMBEV.
         </div>
     </footer>
-    <script src="assets/js/slider-home.js"></script>
 </body>
 
 </html>
