@@ -5,7 +5,7 @@ let produtos = [
       sku: 'AMS600ML',
       preco: 6.87,
       categoria: 'Cerveja',
-      imagem: '/assets/img/produtos/cerveja-amstel-600-ml.png',
+      imagem: '../assets/img/produtos/cerveja-amstel-600-ml.png',
       quantidade: 1,
     },
      {
@@ -14,7 +14,7 @@ let produtos = [
       sku: 'HEI350ML',
       preco: 5.55,
       categoria: 'Cerveja',
-      imagem: '/assets/img/produtos/cerveja-heineken-350-ml.png',
+      imagem: '../assets/img/produtos/cerveja-heineken-350-ml.png',
       quantidade: 1,
     },
     {
@@ -23,7 +23,7 @@ let produtos = [
       sku: 'PEPSI350ML',
       preco: 3.99,
       categoria: 'Refrigerante',
-      imagem: '/assets/img/produtos/refri-pepsi-350-ml.png',
+      imagem: '../assets/img/produtos/refri-pepsi-350-ml.png',
       quantidade: 1,
     },
      {
@@ -32,7 +32,7 @@ let produtos = [
       sku: 'AGUSG500ML',
       preco: 3.50,
       categoria: 'Água',
-      imagem: '/assets/img/produtos/agua-mineral-sem-gas-500ml.png',
+      imagem: '../assets/img/produtos/agua-mineral-sem-gas-500ml.png',
       quantidade: 1,
     },
     {
@@ -41,7 +41,7 @@ let produtos = [
       sku: 'AGUCG500ML',
       preco: 4.00,
       categoria: 'Água',
-      imagem: '/assets/img/produtos/agua-mineral-com-gas-500ml.png',
+      imagem: '../assets/img/produtos/agua-mineral-com-gas-500ml.png',
       quantidade: 1,
     },
     {
@@ -50,7 +50,7 @@ let produtos = [
       sku: 'GELO4KG',
       preco: 10.00,
       categoria: 'Gelo',
-      imagem: '/assets/img/produtos/pacote-gelo-4-kg.png',
+      imagem: '../assets/img/produtos/pacote-gelo-4-kg.png',
       quantidade: 1,
     },
     {
@@ -59,7 +59,7 @@ let produtos = [
       sku: 'GELO10KG',
       preco: 14.99,
       categoria: 'Gelo',
-      imagem: '/assets/img/produtos/pacote-gelo-10-kg.png',
+      imagem: '../assets/img/produtos/pacote-gelo-10-kg.png',
       quantidade: 1,
     },
     {
@@ -68,7 +68,7 @@ let produtos = [
       sku: 'CAR3KG',
       preco: 13.99,
       categoria: 'Carvão',
-      imagem: '/assets/img/produtos/pacote-carvao-3-kg.png',
+      imagem: '../assets/img/produtos/pacote-carvao-3-kg.png',
       quantidade: 1,
     }
   ]
