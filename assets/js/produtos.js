@@ -1,3 +1,45 @@
+document.getElementById('aplicarFiltro').addEventListener('click', () => {
+  grid.innerHTML = '';
+
+  const categoriaSelecionada = document.getElementById('filtroCategoria').value;
+
+  const produtosFiltrados = categoriaSelecionada
+    ? produtos.filter(produto => produto.categoria === categoriaSelecionada)
+    : produtos;
+
+  for (let i of produtosFiltrados) {
+    let criaEl = document.createElement('div');
+    criaEl.innerHTML =
+      `
+        <img src="${i.imagem}" alt="${i.nome}">
+        <b>${i.nome}</b><br>
+        Categoria:${i.categoria}<br>
+        ${i.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<br>
+        <button> Comprar </button>
+      `;
+
+    grid.append(criaEl);
+
+    let btn = criaEl.querySelector('button');
+    btn.addEventListener('click', () => {
+      let produtoAdd = new Produto(
+        i.id,
+        i.nome,
+        i.sku,
+        i.preco,
+        i.categoria,
+        i.imagem,
+        i.quantidade
+      );
+      carrinho.push(produtoAdd);
+
+      let carrinhoArmazenado = JSON.stringify(carrinho);
+      sessionStorage.setItem('carrinho', carrinhoArmazenado);
+    });
+  }
+});
+
+
 let produtos = [
     {
       id: '01',
@@ -31,7 +73,7 @@ let produtos = [
       nome: 'Água Mineral - Sem Gás - 500ml',
       sku: 'AGUSG500ML',
       preco: 3.50,
-      categoria: 'Água',
+      categoria: 'Mercearia',
       imagem: '../assets/img/produtos/agua-mineral-sem-gas-500ml.png',
       quantidade: 1,
     },
@@ -40,7 +82,7 @@ let produtos = [
       nome: 'Água Mineral - Com Gás - 500ml',
       sku: 'AGUCG500ML',
       preco: 4.00,
-      categoria: 'Água',
+      categoria: 'Mercearia',
       imagem: '../assets/img/produtos/agua-mineral-com-gas-500ml.png',
       quantidade: 1,
     },
@@ -49,7 +91,7 @@ let produtos = [
       nome: 'Pacote de Gelo - Escama - 4kg',
       sku: 'GELO4KG',
       preco: 10.00,
-      categoria: 'Gelo',
+      categoria: 'Mercearia',
       imagem: '../assets/img/produtos/pacote-gelo-4-kg.png',
       quantidade: 1,
     },
@@ -58,7 +100,7 @@ let produtos = [
       nome: 'Pacote de Gelo - Escama - 10kg',
       sku: 'GELO10KG',
       preco: 14.99,
-      categoria: 'Gelo',
+      categoria: 'Mercearia',
       imagem: '../assets/img/produtos/pacote-gelo-10-kg.png',
       quantidade: 1,
     },
@@ -67,46 +109,82 @@ let produtos = [
       nome: 'Pacote de Carvão - 3kg',
       sku: 'CAR3KG',
       preco: 13.99,
-      categoria: 'Carvão',
+      categoria: 'Mercearia',
       imagem: '../assets/img/produtos/pacote-carvao-3-kg.png',
       quantidade: 1,
     }
   ]
   
-  let carrinho = [];
-  const grid = document.querySelector('.produtos');
+let carrinho = [];
+const grid = document.querySelector('.produtos');
   
-  for (let i of produtos){
-      let criaEl = document.createElement('div');
-      criaEl.innerHTML = 
-      `
-      <img src="${i.imagem}" alt="${i.nome}">
-      <b>${i.nome}</b><br>
-      Categoria:${i.categoria}<br>
-      ${i.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}<br>
+  
+function renderizaProduto(produto) {
+  let criaEl = document.createElement('div');
+    criaEl.innerHTML = `
+      <img src="${produto.imagem}" alt="${produto.nome}">
+      <b>${produto.nome}</b><br>
+      Categoria: ${produto.categoria}<br>
+      ${produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<br>
       <button> Comprar </button>
-  
-      `;
-      
-      grid.append(criaEl);
-  
-      let btn = criaEl.querySelector('button');
-      btn.addEventListener('click', () => {
-          class Produto {
-          constructor(id, nome, sku, preco, categoria, imagem, quantidade) {
-              this.id = id;
-              this.nome = nome;
-              this.sku = sku;
-              this.preco = preco;
-              this.categoria = categoria;
-              this.imagem = imagem;
-              this.quantidade = quantidade;
+  `;
+
+  grid.append(criaEl);
+
+  let btn = criaEl.querySelector('button');
+  btn.addEventListener('click', () => {
+    carrinho.push({
+          id: produto.id,
+          nome: produto.nome,
+          sku: produto.sku,
+          preco: produto.preco,
+          categoria: produto.categoria,
+          imagem: produto.imagem,
+          quantidade: produto.quantidade || 1,
+      });
+
+      atualizaCarrinho();
+  });
+}
+
+function atualizaCarrinho() {
+    let carrinhoArmazenado = JSON.stringify(carrinho);
+    sessionStorage.setItem('carrinho', carrinhoArmazenado);
+}
+
+for (let i of produtos) {
+    renderizaProduto(i);
+}
+
+
+// função o filtro
+
+function filtraPorCategoria(categoriaSelecionada) {
+    
+  grid.innerHTML = '';
+
+  if (categoriaSelecionada) {
+        const produtosFiltrados = produtos.filter(function(produto) {
+            return produto.categoria === categoriaSelecionada;
+        });
+
+        produtosFiltrados.forEach(function(produto) {
+            renderizaProduto(produto);
+        });
+    } else {
+        produtos.forEach(function(produto) {
+            renderizaProduto(produto);
+        });
     }
-  }
-      let produtoAdd = new Produto (i.id, i.nome, i.sku, i.preco, i.categoria, i.imagem, i.quantidade);
-      carrinho.push(produtoAdd);
+}
+
+produtos.forEach(function(produto) {
+    renderizaProduto(produto);
+});
+
+document.getElementById('filtroCategoria').addEventListener('change', function(event) {
+    const categoriaSelecionada = event.target.value;
+    filtraPorCategoria(categoriaSelecionada);
+});
+
   
-      let carrinhoArmazenado = JSON.stringify(carrinho);
-      sessionStorage.setItem('carrinho', carrinhoArmazenado);
-    });
-  }
