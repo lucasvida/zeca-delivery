@@ -1,0 +1,31 @@
+@layer carrinho-compras{
+    .img-tumb-carrinho{
+        width: 85px;
+        height: 85px;
+        border-radius: 10px;
+        border: solid 1px black;
+    }
+
+    .produto-listado{
+        display: flex;
+        padding: 15px;
+    }
+
+    .info-produto{
+        margin-left: 20px;
+    }
+
+    .categoria{
+        font-size: 0.75em;
+        font-style: italic;
+    }
+    
+    .preco{
+        margin-top: 150px;
+        background-color: var(--cor-menu);
+        color: var(--cor-amarelo);
+        width: 25px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+}

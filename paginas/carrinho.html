@@ -15,6 +15,7 @@
     <link rel="icon" href="../assets/img/favico.png" type="image/x-icon">
     <!-- CSS  -->
     <link rel="stylesheet" href="../assets/css/principal.css">
+    <link rel="stylesheet" href="../assets/css/carrinho.css">
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css">
     </noscript>
@@ -71,21 +72,14 @@
     </header>
     <main>
         <div class="container">
-            <select id="filtroCategoria">
-                <option value="">Todas as Categorias</option>
-                <option value="Cerveja">Cervejas</option>
-                <option value="Destilado">Destilados</option>
-                <option value="Refrigerante">Refrigerantes</option>
-                <option value="Mercearia">Mercearia</option>
-                <option value="Bomboniere">Bomboniere</option>
-              </select>
-              <button id="aplicarFiltro">Aplicar Filtro</button>
-        </div>
-
-        <div class="container">
-            <div class="produtos">
+            <h1>Carrinho de Compras</h1>
+            <div class="carrinho-compras">
+                <table>
+                    <tr>
+                        <span class="itens-carrinho"></span>
+                    </tr>
+                </table>
             </div>
-            <a href="../paginas/carrinho.html">Carrinho</a>
         </div>
     </main>
     <footer>
@@ -145,7 +139,7 @@
         </div>
     </footer>
     <script src="../assets/js/modal.js"></script>
-    <script src="../assets/js/produtos.js"></script>
+    <script src="../assets/js/carrinho.js"></script>
 </body>
 
 </html>
