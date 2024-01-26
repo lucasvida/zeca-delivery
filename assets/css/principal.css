@@ -26,6 +26,10 @@ html{
         width: 85%;
         margin: 0 auto;
     }
+
+    button{
+        cursor: pointer;
+    }
 }
 
 
@@ -48,6 +52,18 @@ html{
         margin-left: 25px !important;
         color: rgb(255, 255, 255);
         padding: 10px;
+    }
+
+    .menu ul{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .icone-carrinho{
+        border-radius: 25px;
+        background-color: red;
+        padding: 5px;
+        color: #FFF;
     }
 
     .btn-login {

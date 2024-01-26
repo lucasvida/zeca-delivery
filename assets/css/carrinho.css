@@ -1,4 +1,14 @@
 @layer carrinho-compras{
+    .carrinho-compras{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 25px;
+        background-color: rgba(72, 72, 72, 0.075);
+    }
+
+
     .img-tumb-carrinho{
         width: 85px;
         height: 85px;
@@ -28,4 +38,59 @@
         border-radius: 5px;
         padding: 5px;
     }
+
+    .quantidade-produto{
+        padding: 5px;
+        border-radius: 5px;
+        width: 50px;
+        float: right;
+        text-align: center;
+    }
+}
+
+@layer resumo-da-compra{
+    .resumo-da-compra{
+        width: 25%;
+        min-height: 40vh;
+        border-radius: 25px;
+        background-color: var(--cor-amarelo);
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align:center;
+    }
+
+    .resumo-da-compra-infos{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    .btn-finalizar-pedido{
+        background-color: var(--cor-menu);
+        color: var(--cor-amarelo);
+        margin-top: 20px;
+        width: 95%;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .quantidade-de-itens, .resumo-da-compra-infos-title{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .valor-da-compra{
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    
+
+
 }

@@ -27,6 +27,7 @@
     <!-- Title  -->
     <title> Zeca Delivery - Projeto Educacional </title>
 </head>
+
 <body>
     <noscript>
         <div class="container erro-center">
@@ -36,11 +37,11 @@
     </noscript>
     <section id="modal">
         <div class="modal-text">
-           Você tem 18 ou mais anos ?
-           <div class="btn-modal">
-               <button id="btn-modal-nao">NÃO</button>
-               <button id="btn-modal-sim">SIM</button>
-           </div>
+            Você tem 18 ou mais anos ?
+            <div class="btn-modal">
+                <button id="btn-modal-nao">NÃO</button>
+                <button id="btn-modal-sim">SIM</button>
+            </div>
         </div>
     </section>
     <header>
@@ -58,6 +59,9 @@
                         </a>
                         <a href="../paginas/sobre.html">
                             <li>Sobre</li>
+                        </a>
+                        <a href="../paginas/carrinho.html">
+                            <li>Carrinho <span class="icone-carrinho"></span></li>
                         </a>
                         <a href="../login.html">
                             <button class="btn-login">
@@ -78,8 +82,8 @@
                 <option value="Refrigerante">Refrigerantes</option>
                 <option value="Mercearia">Mercearia</option>
                 <option value="Bomboniere">Bomboniere</option>
-              </select>
-              <button id="aplicarFiltro">Aplicar Filtro</button>
+            </select>
+            <button id="aplicarFiltro">Aplicar Filtro</button>
         </div>
 
         <div class="container">
@@ -146,6 +150,8 @@
     </footer>
     <script src="../assets/js/modal.js"></script>
     <script src="../assets/js/produtos.js"></script>
+    <!-- Inclusão da Biblioteca Seweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
