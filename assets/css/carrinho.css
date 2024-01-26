@@ -7,29 +7,23 @@
         border-radius: 25px;
         background-color: rgba(72, 72, 72, 0.075);
     }
-
-
     .img-tumb-carrinho{
         width: 85px;
         height: 85px;
         border-radius: 10px;
         border: solid 1px black;
     }
-
     .produto-listado{
         display: flex;
         padding: 15px;
     }
-
     .info-produto{
         margin-left: 20px;
     }
-
     .categoria{
         font-size: 0.75em;
         font-style: italic;
-    }
-    
+    }  
     .preco{
         margin-top: 150px;
         background-color: var(--cor-menu);
@@ -38,7 +32,6 @@
         border-radius: 5px;
         padding: 5px;
     }
-
     .quantidade-produto{
         padding: 5px;
         border-radius: 5px;
@@ -60,14 +53,12 @@
         justify-content: space-between;
         text-align:center;
     }
-
     .resumo-da-compra-infos{
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         text-align: right;
     }
-
     .btn-finalizar-pedido{
         background-color: var(--cor-menu);
         color: var(--cor-amarelo);
@@ -78,7 +69,6 @@
         text-align: center;
         cursor: pointer;
     }
-
     .quantidade-de-itens, .resumo-da-compra-infos-title{
         display: flex;
         justify-content: space-between;
@@ -89,8 +79,15 @@
         font-size: 1.5em;
         font-weight: bold;
     }
-
-    
-
-
 }
+
+@media screen and (max-width: 600px){
+    .carrinho-compras{
+        flex-direction: column;
+        flex-flow: column-reverse;
+    }
+    .resumo-da-compra{
+        width: 88%;
+    }
+}
+    

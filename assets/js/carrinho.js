@@ -1,6 +1,7 @@
 let carrinhoString = sessionStorage.getItem("carrinho");
 let carrinhoGerado = JSON.parse(carrinhoString);
-let carrinhoCompras = document.querySelector(".itens-carrinho");
+
+const carrinhoCompras = document.querySelector(".itens-carrinho");
 const subtotal = document.querySelector(".subtotal");
 const subtotalItens = document.querySelector(".subtotal-itens");
 const itensCarrinhoQuantidade = document.querySelector(".icone-carrinho");
