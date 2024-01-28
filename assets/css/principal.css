@@ -2,13 +2,15 @@
 body{
     box-sizing: border-box;
     margin: 0;
-            padding: 0;}
+    padding: 0;
+}
 
 
 html{
     list-style: none;
     outline: none;
     font-family: var(--font-principal);
+    scroll-behavior: smooth;
 }
 
 
@@ -38,6 +40,9 @@ html{
         background-color: var(--cor-menu);
         display: flex;
         justify-content: center;
+    }
+    .logo{
+        padding: 15px;
     }
     .menu-principal{
         display: flex;
@@ -169,22 +174,43 @@ html{
         align-items: center;
         position: absolute;
     }
+    .banner-home-mobile{
+        display: none;
+    }
 }
 
 
 @layer home-coteudo{
+    .categorias{
+        margin-top: 50px;
+    }
     .sub-categorias{
         width: 100%;
-        min-height: 250px;
+        min-height: 350px;
+        margin-top: 25px;
+        margin-bottom: 25px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        gap: 2px;
+        gap: 25px;
+        padding: 25px;
     }
 
-    .sub-categorias img{
-        border-radius: 15px;
+    .mini-banner{
+        cursor: pointer;
+    }
+
+    .mini-banner:hover{
+        scale: 1.1;
+        transition: 1s;
+        border-radius: 0px;
+    }
+
+    .mini-banner:not(:hover){
+        scale: 1;
+        transition: 1s;
+        border-radius: 35px;
     }
 }
 
@@ -250,7 +276,7 @@ html{
             }
            }
 
-           @layer lider-banner-home {
+           @layer slider-banner-home {
             .slide{
                 width: 100%;
                 height: 250px;
@@ -271,8 +297,19 @@ html{
                 align-items: center;
                 position: absolute;
             }
+            .banner-home{
+                display: none;
+            }
+            .banner-home-mobile{
+                display: block;
+            }
            }
 
+        @layer conteud-home{
+            .sub-categorias {
+                width: auto;
+         }
+        }
 
        @layer footer {
         .footer-top{
@@ -283,8 +320,11 @@ html{
             width: 100%;
             min-height: 0;
             padding: 5px;
+            display: block;
         }
-       }
-    }
-}
 
+        .cards-dev img{
+            width: 100%;
+        }
+    }
+}}
