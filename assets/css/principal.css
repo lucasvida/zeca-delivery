@@ -36,10 +36,10 @@ html{
 
 
 @layer menu {
-    header{
+    header {
         background-color: var(--cor-menu);
-        display: flex;
-        justify-content: center;
+        /* display: flex;
+        justify-content: center; */
     }
     .logo{
         padding: 15px;
@@ -63,6 +63,15 @@ html{
         display: flex;
         justify-content: space-between;
     }
+
+    .menu-mobile{
+        display: none;
+    }
+
+    .menu-off-canvas{
+        display: none;
+    }
+
 
     .icone-carrinho{
         border-radius: 25px;
@@ -269,11 +278,142 @@ html{
 
     @media screen and (max-width:600px){
 
+        .container{
+            width: 95%;
+        }
+
+        .logo{
+            display: none;
+        }
         @layer menu {
             .menu-principal{
                flex-direction: column;
                color: #FFF;
             }
+            .menu{
+                display: none;
+            }
+            .menu-mobile{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 5px;
+            }
+
+            .btn-menu{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 20%;
+                border: 0;
+                font-family: var(--font-principal);
+                background-color:var(--cor-amarelo);
+                font-weight: bold;
+                text-align: center;
+                border-radius: 35px;
+                padding: 9px;
+                font-size: 0.75em;
+                color: #000;
+                cursor: pointer;
+            }
+            
+            .logo-mobile{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+            }
+            .carrinho-icone-mobile{
+                width: 20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+           }
+
+           @layer menu-offcanvas{
+            .menu-off-canvas{
+                display: block;
+                position: absolute;
+                margin-left:-300px;  
+                width:250px;
+                height: 100vh;
+                background-color:#050e13;
+                transition: 1s;
+                z-index: 9;
+              }
+              
+              .menu-off-canvas ul a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-decoration: none;
+                color: var(--cor-amarelo);
+              }
+
+              .menu-off-canvas ul{
+               padding-left: 0;
+              }
+              
+              .close-menu{
+                  display: block;
+                  width: 100%;
+                  height: 65px;
+              }
+              
+              .close-menu span{
+                float:right;
+                width: 15px;
+                height: 15px;
+                padding:10px;
+                background-color: rgba(100,100, 100, 0.2);
+                border-radius:50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 15px;
+                margin-right: 15px;
+                transition: 0.5s;
+                cursor: pointer;
+                z-index: 2;
+              }
+              
+              .btn-login-mobile{
+                width: 85px;
+                text-align: center;
+                margin-top: 25px;
+                border: 0;
+                font-family: var(--font-principal);
+                background-color:var(--cor-amarelo);
+                font-weight: bold;
+                text-align: center;
+                border-radius: 35px;
+                padding: 9px;
+                font-size: 0.75em;
+                color: #000;
+                cursor: pointer;
+            }
+              
+              .item-menu{
+                  width: 80%;
+                  height:25px;
+                  padding: 10px;
+                  margin-top: 5px;
+                  display: flex;
+                  justify-content: flex-start;
+                  align-items: center;
+                  border-bottom: dashed 1px rgba(255, 238, 3, 0.295);
+              }
+              
+              .item-menu:hover{
+                  background-color: #4331a828;
+                  cursor: pointer;
+              }
+
+              
+              
            }
 
            @layer slider-banner-home {
@@ -305,7 +445,7 @@ html{
             }
            }
 
-        @layer conteud-home{
+        @layer conteudo-home{
             .sub-categorias {
                 width: auto;
          }
