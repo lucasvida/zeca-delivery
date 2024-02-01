@@ -132,19 +132,11 @@ os produtos 2x */
 function filtraPorCategoria(categoriaSelecionada) {
   grid.innerHTML = "";
 
-  if (categoriaSelecionada) {
-    const produtosFiltrados = produtos.filter(function (produto) {
-      return produto.categoria === categoriaSelecionada;
-    });
+  const produtosFiltrados = categoriaSelecionada
+  ? produtos.filter((produto) => produto.categoria === categoriaSelecionada)
+  : produtos;
 
-    produtosFiltrados.forEach(function (produto) {
-      renderizaProduto(produto);
-    });
-  } else {
-    produtos.forEach(function (produto) {
-      renderizaProduto(produto);
-    });
-  }
+  produtosFiltrados.forEach((produto) => renderizaProduto(produto));
 }
 
 produtos.forEach(function (produto) {
