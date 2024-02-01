@@ -274,6 +274,8 @@ html{
     }
 }
 
+/* novo push */
+
 @layer mobile {
 
     @media screen and (max-width:600px){
@@ -317,7 +319,7 @@ html{
                 color: #000;
                 cursor: pointer;
             }
-            
+
             .logo-mobile{
                 display: flex;
                 align-items: center;
