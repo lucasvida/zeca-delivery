@@ -6,6 +6,7 @@ const subtotal = document.querySelector(".subtotal");
 const subtotalItens = document.querySelector(".subtotal-itens");
 const itensCarrinhoQuantidade = document.querySelector(".icone-carrinho");
 let somaPrecos = 0;
+let totalItens = 0;
 
 
 window.addEventListener("load", () => {
@@ -55,32 +56,40 @@ function renderizaCarrinho() {
       if( inputQuantidade.value > 0){
         inputQuantidade.value = parseInt(inputQuantidade.value) - 1;
         produto.quantidade = parseInt(inputQuantidade.value);
+        totalItensCarrinho();
       }
     })
     
     btnMais.addEventListener('click',()=>{
       inputQuantidade.value = parseInt(inputQuantidade.value) + 1;
       produto.quantidade = parseInt(inputQuantidade.value);
+      totalItensCarrinho();
     })
   }
 
 
 }
 
-
 for (let i = 0; i < carrinhoGerado.length; i++) {
   somaPrecos += carrinhoGerado[i].preco * carrinhoGerado[i].quantidade;
 }
 
+//Verifica o total de Itens
+function totalItensCarrinho(){
+  totalItens = 0;
+  for (let i = 0; i < carrinhoGerado.length; i++){
+    totalItens += carrinhoGerado[i].quantidade;
+  }
+  subtotalItens.innerText = totalItens;
+}
 
+//Fazer um if
+itensCarrinhoQuantidade.innerText = totalItens;
 
-
+//Inicializa o Carrinho com quantidade básica de itens.
 subtotalItens.innerText = carrinhoGerado.length;
 subtotalItens.classList.add("valor-da-compra");
 
-
-//Fazer um if
-itensCarrinhoQuantidade.innerText = carrinhoGerado.length;
 
 subtotal.innerHTML = `<div class="valor-da-compra">${somaPrecos.toLocaleString(
   "pt-BR",
