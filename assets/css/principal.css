@@ -274,7 +274,15 @@ html{
     }
 }
 
-/* novo push */
+/* Ajustar inputs Tipo Number*/
+
+/* Chrome e outros */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
 
 @layer mobile {
 
