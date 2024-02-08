@@ -7,6 +7,7 @@ const subtotalItens = document.querySelector(".subtotal-itens");
 const itensCarrinhoQuantidade = document.querySelector(".icone-carrinho");
 let somaPrecos = 0;
 let totalItens = 0;
+let novoTotalDesc;
 
 window.addEventListener("load", () => {
   carrinhoGerado != null ? renderizaCarrinho() : alert("vazio");
@@ -34,15 +35,21 @@ function renderizaCarrinho() {
             <div class="seletor-quantidade">
           <button type="button" class="btn-quantidade" id="btn-menos-${
             produto.id
-          }" aria-label="Reduz itens do produto ${produto.nome}">-</button>
+          }" aria-label="Reduz itens do produto ${produto.nome}" data-menosid="${
+            produto.id
+          }">-</button>
               <input type="text" value="${
                 produto.quantidade
               }" class="input-quantidade" id="input-quantidade-${
       produto.id
-    }" inputmode="numeric" readonly="true">
+    }" inputmode="numeric" readonly="true" data-inputid="${
+      produto.id
+    }">
           <button type="button" class="btn-quantidade" id="btn-mais-${
             produto.id
-          }" aria-label="Adiciona itens do produto ${produto.nome}">+</button>
+          }" aria-label="Adiciona itens do produto ${produto.nome}" data-maisid="${
+            produto.id
+          }">+</button>
         </div>
             </div>
                 </div>
@@ -53,32 +60,82 @@ function renderizaCarrinho() {
         </td>
     `;
 
-    let btnMenos = document.querySelector(`#btn-menos-${produto.id}`);
-    let btnMais = document.querySelector(`#btn-mais-${produto.id}`);
-    let inputQuantidade = document.querySelector(
-      `#input-quantidade-${produto.id}`
-    );
+    const btnMenos = document.querySelectorAll('button[data-menosid]');
+    const btnMais = document.querySelectorAll('button[data-maisid]');
+   
+    for (let i of btnMenos){
+      i.addEventListener('click',()=>{
+        let inputQuantidade = document.querySelector(`#input-quantidade-${i.getAttribute('data-menosid')}`);
+      
+        if (inputQuantidade.value > 0) {
+              inputQuantidade.value = parseInt(inputQuantidade.value) - 1;
+              
+              for (let produto of carrinhoGerado) {
+                if (produto.id === i.getAttribute('data-menosid')) {
+                  produto.quantidade = parseInt(inputQuantidade.value);
+                  break; // Se encontrou o produto, não precisa continuar o loop
+                }
+              }
+              produto.quantidade = parseInt(inputQuantidade.value);
+              
+              totalItensCarrinho();
+              totalItensSoma();
+              if (inputQuantidade.value <= 0) {
+                alert("remover");
+              }
+            }
+            
+      })
+    }
 
-    btnMenos.addEventListener("click", () => {
-      if (inputQuantidade.value > 0) {
-        inputQuantidade.value = parseInt(inputQuantidade.value) - 1;
-        produto.quantidade = parseInt(inputQuantidade.value);
-        totalItensCarrinho();
-        totalItensSoma();
-        if (inputQuantidade.value <= 0) {
-          alert("remover");
-        }
-      }
-    });
+    for (let i of btnMais){
+      i.addEventListener('click',()=>{
+        let inputQuantidade = document.querySelector(`#input-quantidade-${i.getAttribute('data-maisid')}`);
+          inputQuantidade.value = parseInt(inputQuantidade.value) + 1 ;
+          
+          for (let produto of carrinhoGerado) {
+            if (produto.id === i.getAttribute('data-maisid')) {
+              produto.quantidade = parseInt(inputQuantidade.value);
+              break; // Se encontrou o produto, não precisa continuar o loop
+            }
+          }
+          totalItensCarrinho();
+          totalItensSoma();
+      })
+    }
 
-    btnMais.addEventListener("click", () => {
-      inputQuantidade.value = parseInt(inputQuantidade.value) + 1;
-      produto.quantidade = parseInt(inputQuantidade.value);
-      totalItensCarrinho();
-      totalItensSoma();
-    });
   }
 }
+
+
+let descontos = [
+  {
+  desconto:'10OFF',
+  valor: 10,
+  },
+  {
+    desconto:'15OFF',
+    valor: 15,
+  }
+]
+
+
+//Verifica Cupom de Desconto
+const cupomDesconto = document.querySelector('#input-cupom-desconto');
+const btnCupomDesconto = document.querySelector('#btn-cupom-desconto');
+
+btnCupomDesconto.addEventListener('click',()=>{
+  for (promo of descontos){
+    if (promo.desconto === cupomDesconto.value) {
+      novoTotal = (somaPrecos * promo.valor) / 100;
+      let novoTotalDesc = somaPrecos - Math.floor(novoTotal);
+      alert(novoTotalDesc);
+      break; // Se encontrou o produto, não precisa continuar o loop
+    }
+  }
+})
+
+
 
 //Verifica o total de Itens
 function totalItensCarrinho() {
