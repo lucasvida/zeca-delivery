@@ -1,5 +1,9 @@
 let carrinhoString = sessionStorage.getItem("carrinho");
 let carrinhoGerado = JSON.parse(carrinhoString);
+let carrinhoFinalizado = {
+  quantidadeItensFinal: 0,
+  subtotalFinal: 0,
+};
 
 const carrinhoCompras = document.querySelector(".itens-carrinho");
 const subtotal = document.querySelector(".subtotal");
@@ -35,21 +39,19 @@ function renderizaCarrinho() {
             <div class="seletor-quantidade">
           <button type="button" class="btn-quantidade" id="btn-menos-${
             produto.id
-          }" aria-label="Reduz itens do produto ${produto.nome}" data-menosid="${
-            produto.id
-          }">-</button>
+          }" aria-label="Reduz itens do produto ${
+      produto.nome
+    }" data-menosid="${produto.id}">-</button>
               <input type="text" value="${
                 produto.quantidade
               }" class="input-quantidade" id="input-quantidade-${
       produto.id
-    }" inputmode="numeric" readonly="true" data-inputid="${
-      produto.id
-    }">
+    }" inputmode="numeric" readonly="true" data-inputid="${produto.id}">
           <button type="button" class="btn-quantidade" id="btn-mais-${
             produto.id
-          }" aria-label="Adiciona itens do produto ${produto.nome}" data-maisid="${
-            produto.id
-          }">+</button>
+          }" aria-label="Adiciona itens do produto ${
+      produto.nome
+    }" data-maisid="${produto.id}">+</button>
         </div>
             </div>
                 </div>
@@ -60,82 +62,108 @@ function renderizaCarrinho() {
         </td>
     `;
 
-    const btnMenos = document.querySelectorAll('button[data-menosid]');
-    const btnMais = document.querySelectorAll('button[data-maisid]');
-   
-    for (let i of btnMenos){
-      i.addEventListener('click',()=>{
-        let inputQuantidade = document.querySelector(`#input-quantidade-${i.getAttribute('data-menosid')}`);
-      
-        if (inputQuantidade.value > 0) {
-              inputQuantidade.value = parseInt(inputQuantidade.value) - 1;
-              
-              for (let produto of carrinhoGerado) {
-                if (produto.id === i.getAttribute('data-menosid')) {
-                  produto.quantidade = parseInt(inputQuantidade.value);
-                  break; // Se encontrou o produto, não precisa continuar o loop
-                }
-              }
-              produto.quantidade = parseInt(inputQuantidade.value);
-              
-              totalItensCarrinho();
-              totalItensSoma();
-              if (inputQuantidade.value <= 0) {
-                alert("remover");
-              }
-            }
-            
-      })
-    }
+    const btnMenos = document.querySelectorAll("button[data-menosid]");
+    const btnMais = document.querySelectorAll("button[data-maisid]");
 
-    for (let i of btnMais){
-      i.addEventListener('click',()=>{
-        let inputQuantidade = document.querySelector(`#input-quantidade-${i.getAttribute('data-maisid')}`);
-          inputQuantidade.value = parseInt(inputQuantidade.value) + 1 ;
-          
+    for (let i of btnMenos) {
+      i.addEventListener("click", () => {
+        let inputQuantidade = document.querySelector(
+          `#input-quantidade-${i.getAttribute("data-menosid")}`
+        );
+
+        if (inputQuantidade.value > 0) {
+          inputQuantidade.value = parseInt(inputQuantidade.value) - 1;
+
           for (let produto of carrinhoGerado) {
-            if (produto.id === i.getAttribute('data-maisid')) {
+            if (produto.id === i.getAttribute("data-menosid")) {
               produto.quantidade = parseInt(inputQuantidade.value);
               break; // Se encontrou o produto, não precisa continuar o loop
             }
           }
+          produto.quantidade = parseInt(inputQuantidade.value);
           totalItensCarrinho();
           totalItensSoma();
-      })
+          aplicaDesconto();
+          if (inputQuantidade.value <= 0) {
+            alert("remover");
+          }
+        }
+      });
     }
 
+    for (let i of btnMais) {
+      i.addEventListener("click", () => {
+        let inputQuantidade = document.querySelector(
+          `#input-quantidade-${i.getAttribute("data-maisid")}`
+        );
+        inputQuantidade.value = parseInt(inputQuantidade.value) + 1;
+
+        for (let produto of carrinhoGerado) {
+          if (produto.id === i.getAttribute("data-maisid")) {
+            produto.quantidade = parseInt(inputQuantidade.value);
+            break; // Se encontrou o produto, não precisa continuar o loop
+          }
+        }
+        totalItensCarrinho();
+        totalItensSoma();
+        aplicaDesconto();
+      });
+    }
   }
 }
 
-
 let descontos = [
   {
-  desconto:'10OFF',
-  valor: 10,
+    desconto: "10OFF",
+    valor: 10,
   },
   {
-    desconto:'15OFF',
+    desconto: "15OFF",
     valor: 15,
-  }
-]
-
+  },
+  {
+    desconto: "20OFF",
+    valor: 20,
+  },
+];
 
 //Verifica Cupom de Desconto
-const cupomDesconto = document.querySelector('#input-cupom-desconto');
-const btnCupomDesconto = document.querySelector('#btn-cupom-desconto');
+const cupomDesconto = document.querySelector("#input-cupom-desconto");
+const btnCupomDesconto = document.querySelector("#btn-cupom-desconto");
 
-btnCupomDesconto.addEventListener('click',()=>{
-  for (promo of descontos){
-    if (promo.desconto === cupomDesconto.value) {
+function aplicaDesconto() {
+  for (promo of descontos) {
+    if (promo.desconto === cupomDesconto.value.toUpperCase()) {
       novoTotal = (somaPrecos * promo.valor) / 100;
       let novoTotalDesc = somaPrecos - Math.floor(novoTotal);
-      alert(novoTotalDesc);
+      alert("Cupom Aplicado com Sucesso");
+      subtotal.innerHTML = `<div class="valor-da-compra">
+
+      <span class="preco-antigo">
+      
+      ${somaPrecos.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })}
+      
+      
+      </span>
+
+      ${novoTotalDesc.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })}</div>`;
+      carrinhoFinalizado.subtotalFinal = novoTotalDesc;
+      sessionStorage.setItem(
+        "carrinhoFinalizado",
+        JSON.stringify(carrinhoFinalizado)
+      );
       break; // Se encontrou o produto, não precisa continuar o loop
     }
   }
-})
+}
 
-
+btnCupomDesconto.addEventListener("click", aplicaDesconto);
 
 //Verifica o total de Itens
 function totalItensCarrinho() {
@@ -145,6 +173,11 @@ function totalItensCarrinho() {
   }
   subtotalItens.innerText = totalItens;
   itensCarrinhoQuantidade.innerText = totalItens;
+  carrinhoFinalizado.quantidadeItensFinal = totalItens;
+  sessionStorage.setItem(
+    "carrinhoFinalizado",
+    JSON.stringify(carrinhoFinalizado)
+  );
 }
 
 //Verifica o total da Soma
@@ -153,6 +186,7 @@ function totalItensSoma() {
   for (let i = 0; i < carrinhoGerado.length; i++) {
     somaPrecos += carrinhoGerado[i].preco * carrinhoGerado[i].quantidade;
   }
+
   subtotal.innerHTML = `<div class="valor-da-compra">${somaPrecos.toLocaleString(
     "pt-BR",
     {
@@ -160,6 +194,11 @@ function totalItensSoma() {
       currency: "BRL",
     }
   )}</div>`;
+  carrinhoFinalizado.subtotalFinal = somaPrecos;
+  sessionStorage.setItem(
+    "carrinhoFinalizado",
+    JSON.stringify(carrinhoFinalizado)
+  );
 }
 
 //Fazer um if
@@ -172,6 +211,12 @@ for (let i = 0; i < carrinhoGerado.length; i++) {
 //Inicializa o Carrinho com quantidade básica de itens.
 subtotalItens.innerText = carrinhoGerado.length;
 subtotalItens.classList.add("valor-da-compra");
+carrinhoFinalizado.quantidadeItensFinal = carrinhoGerado.length;
+carrinhoFinalizado.subtotalFinal = somaPrecos;
+sessionStorage.setItem(
+  "carrinhoFinalizado",
+  JSON.stringify(carrinhoFinalizado)
+);
 
 subtotal.innerHTML = `<div class="valor-da-compra">${somaPrecos.toLocaleString(
   "pt-BR",

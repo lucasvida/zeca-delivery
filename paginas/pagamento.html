@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Metas Description | Keywords | Author -->
+    <meta name="description" content="Explore nosso projeto educacional, inspirado no Zé Delivery, para dominar os conceitos fundamentais de JavaScript. 
+    Através do curso da Coder House, construindo funcionalidades interativas e dinâmicas. Turma 50825 ">
+    <meta name="keywords" content="Projeto Educacional, Zé Delivery Clone, Curso de JavaScript, Curso Coder House">
+    <meta name="author" content="Lais Galetto, Ramon Miranda, Lucas Vida">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="language" content="Portuguese">
+    <!-- Favicon  -->
+    <link rel="icon" href="../assets/img/favico.png" type="image/x-icon">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="../assets/css/principal.css">
+    <link rel="stylesheet" href="../assets/css/entrega-pagamento.css">
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css">
+    </noscript>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,900;1,400&family=Rubik:ital,wght@0,500;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <!-- Title  -->
+    <title> Zeca Delivery - Projeto Educacional </title>
+</head>
+
+<body>
+    <noscript>
+        <div class="container erro-center">
+            <img src="../assets/img/no-script.png" alt="Erro de Java Script"> <br><br>
+            <a href="https://support.google.com/admanager/answer/12654?hl=pt-BR"> Como habilitar o Java Script </a>
+        </div>
+    </noscript>
+    <section id="modal">
+        <div class="modal-text">
+            Você tem 18 ou mais anos ?
+            <div class="btn-modal">
+                <button id="btn-modal-nao">NÃO</button>
+                <button id="btn-modal-sim">SIM</button>
+            </div>
+        </div>
+    </section>
+    <header>
+        <!-- Menu Móbile Off Canvas -->
+        <nav class="menu-off-canvas">
+
+            <div class="close-menu">
+                <span> ❌ </span>
+            </div>
+            <ul>
+                <a href="../index.html">
+                    <li class="item-menu">🏠 HOME </li>
+                </a>
+                <a href="../paginas/catalogo.html"">
+                    <li class=" item-menu">🍻 PRODUTOS </li>
+                </a>
+                <a href="../paginas/sobre.html">
+                    <li class="item-menu">👩🏻‍💻 SOBRE </li>
+                </a>
+                <a href="../paginas/carrinho.html">
+                    <li class="item-menu">🛒 CARRINHO </li>
+                </a>
+                <a href="../paginas/login.html">
+                    <li class="btn-login-mobile"> LOGIN </li>
+                </a>
+            </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <nav class="menu-principal">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/img/logotipo-zeca-delivery.png" alt="Logotipo Zeca Delivery">
+                    </a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <a href="../paginas/catalogo.html">
+                            <li>Produtos</li>
+                        </a>
+                        <a href="../paginas/sobre.html">
+                            <li>Sobre</li>
+                        </a>
+                        <a href="../paginas/carrinho.html">
+                            <li>Carrinho <span class="icone-carrinho"></span></li>
+                        </a>
+                        <a href="../paginas/login.html">
+                            <button class="btn-login">
+                                LOGIN
+                            </button>
+                        </a>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Menu Móbile -->
+            <div class="menu-mobile">
+                <button class="btn-menu">
+                    ≡ MENU
+                </button>
+                <div class="logo-mobile">
+                    <a href="../index.html">
+                        <img src="../assets/img/logotipo-zeca-delivery-mobile.png" alt="Logotipo Zeca Delivery">
+                    </a>
+                </div>
+                <a href="../paginas/carrinho.html" class="carrinho-icone-mobile">
+                    <img src="../assets/img/icon-cart.png" alt="Icone Carrinho">
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Entrega e Pagamento</h1>
+            <form action="">
+                <label for="cep">Digite seu CEP: <span>Preenchimento automático*</span></label> <br>
+                <input type="text" id="cep" inputmode="numeric" maxlength="8" placeholder="Apenas Números Ex: 01001000 "
+                    class="cep-inputs"> <br><br>
+                <div class="dados-entrega">
+                    <div class="inputs-posicao">
+                        <div>
+                            <label for="rua">Rua | Avenida </label> <br>
+                            <input type="text" id="rua" class="dados-entrega-inputs"><br><br>
+                        </div>
+                        <div>
+                            <label for="numero">Número:</label> <br>
+                            <input type="text" id="numero" class="dados-entrega-inputs"><br><br>
+                        </div>
+                    </div>
+                    <div class="inputs-posicao">
+                        <div>
+                            <label for="numero">Complemento:</label> <br>
+                            <input type="text" id="complemento" class="dados-entrega-inputs"><br><br>
+                        </div>
+                        <div>
+                            <label for="numero">Bairro:</label> <br>
+                            <input type="text" id="bairro" class="dados-entrega-inputs"><br><br>
+                        </div>
+                    </div>
+                    <div class="inputs-posicao">
+                        <div>
+                            <label for="numero">Cidade:</label> <br>
+                            <input type="text" id="cidade" class="dados-entrega-inputs"><br><br>
+                        </div>
+                        <div>
+                            <label for="numero">Estado:</label> <br>
+                            <input type="text" id="estado" class="dados-entrega-inputs"><br><br>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="cards-dev">
+                    <img src="../assets/img/logotipo-zeca-delivery-footer.png" alt="Logotipo Zeca Delivery">
+                </div>
+                <div class="cards-dev">
+                    <h4>
+                        LAIS Galetto
+                    </h4>
+                    <hr>
+                    <ul>
+                        <li> 👩‍💻 Junior Full Stack Developer </li>
+                        <li> 🌎 Santos/SP </li>
+                        <a href="https://www.linkedin.com/in/laisgaletto/" target="_blank"
+                            aria-label="Perfil do Linkedin da Lais Galetto">
+                            <li> ➡️ Linkedin </li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="cards-dev">
+                    <h4>
+                        RAMON Miranda
+                    </h4>
+                    <hr>
+                    <ul>
+                        <li> 👩‍💻 Analista de Processos Jr </li>
+                        <li> 🌎 Rio de Janeiro/RJ</li>
+                        <a href="https://www.linkedin.com/in/ramonmiranda98/" target="_blank"
+                            aria-label="Perfil do Linkedin do Ramon Miranda">
+                            <li> ➡️ Linkedin </li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="cards-dev">
+                    <h4>
+                        LUCAS Vida
+                    </h4>
+                    <hr>
+                    <ul>
+                        <li> 👩‍💻 Analista de E-commerce </li>
+                        <li> 🌎 Belo Horizonte/MG </li>
+                        <a href="https://www.linkedin.com/in/lucas-vida/" target="_blank"
+                            aria-label="Perfil do Linkedin do Lucas Vida">
+                            <li> ➡️ Linkedin </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-end">
+            Projeto Educacional desenvolvido para o trabalho final do curso JavaScript da Coder House.<br>
+            Turma 50825 | Este projeto não possui nenhum vínculo com a marca "Zé Delivery", que são de propriedade
+            e marca registrada da AMBEV.
+        </div>
+    </footer>
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/entrega-pagamento.js"></script>
+    <script src="../assets/js/principal.js"></script>
+</body>
+
+</html>

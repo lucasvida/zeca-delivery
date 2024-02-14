@@ -34,6 +34,30 @@ html{
     }
 }
 
+/*Scroll Bar */
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: black var(--cor-amarelo);
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--cor-amarelo);
+    border-radius: 20px;
+    border: solid black 5px;
+    height: 25px;
+  }
+
 
 @layer menu {
     header {

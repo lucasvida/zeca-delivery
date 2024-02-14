@@ -154,10 +154,21 @@
         text-align: center;
         cursor: pointer;
     }
+
+    .resumo-da-compra-infos a {
+        text-decoration: none;
+    }
     .quantidade-de-itens, .resumo-da-compra-infos-title{
         display: flex;
         justify-content: space-between;
         flex-direction: row;
+    }
+
+    .preco-antigo{
+        font-size: 0.75em;
+        text-decoration: line-through;
+        color: rgb(199, 0, 0);
+        margin-right: 10px;
     }
 
     .valor-da-compra{
