@@ -1,4 +1,29 @@
 @layer entrega{
+
+    .entrega{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 25px;
+        background-color: rgba(72, 72, 72, 0.075);
+    }
+
+    .form-entrega{
+        width: 35%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 30px;
+    }
+
+    .info-cep{
+        font-size: 0.7em;
+        color: rgb(2, 2, 88);
+        font-style: italic;
+    }
+
     .dados-entrega{
         visibility:hidden ;
         display: flex;
@@ -40,4 +65,103 @@
     .dados-entrega-validacao{
         background-color: #64748b2b;
     }
+}
+
+@layer pagamento{
+
+    .metodos-pagamento{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .metodos-pagamento-opcoes{
+        width: 85%;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        margin-top: 10px;
+        background-color: #021c410e;
+        border: solid 1px black;
+        border-radius: 25px;
+    }
+    .metodos-pagamento-opcoes:nth-last-child(1){
+        margin-bottom: 20px;
+    }
+    .metodo{
+        width: 250px;
+        padding: 10px;
+        background-color: aqua;
+    }
+
+    fieldset{
+        border-radius: 20px;
+        padding: 10px;
+        border: solid 2px rgba(0, 0, 255, 0.109);
+    }
+
+  
+
+.label-pagamamento{
+        display: flex;
+        width: 100%;
+        cursor: pointer;
+        position: relative;
+        padding-left: 25px;
+    }
+    
+    /* Escondemos o radio original */
+    input[type=radio] {
+        display: none;
+    }
+    
+    /* Usamos o pseudo-element :before para recriar o novo radio */
+    .label-pagamamento:before {
+        content: "";
+        display: inline-block;
+     
+        width: 20px;
+        height: 20px;
+      
+        border-radius:50%;
+     
+        margin-right: 10px;
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        background-color: var(--cor-amarelo);
+        box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    }
+    
+    /* CSS Responsavel por definir o estilo para radio Checkado */
+    input[type=radio]:checked + label:before {
+        content: "\2022";
+        color: var(--cor-menu);
+        font-size: 2.75em;
+        text-align: center;
+        line-height: 18px;
+    }
+
+    .metodo-escolhido{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 95%;
+        border-radius: 25px;
+        margin-top: 15px;
+        padding: 25px;
+        background-color: var(--cor-amarelo);
+    }
+
+    .pix-chave{
+        width: 85%;
+        overflow-wrap: break-word;
+    }
+    
 }

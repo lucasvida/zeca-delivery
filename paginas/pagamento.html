@@ -16,6 +16,7 @@
     <!-- CSS  -->
     <link rel="stylesheet" href="../assets/css/principal.css">
     <link rel="stylesheet" href="../assets/css/entrega-pagamento.css">
+    <link rel="stylesheet" href="../assets/css/carrinho.css">
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css">
     </noscript>
@@ -114,45 +115,97 @@
         </div>
     </header>
     <main>
+
         <div class="container">
             <h1>Entrega e Pagamento</h1>
-            <form action="">
-                <label for="cep">Digite seu CEP: <span>Preenchimento automático*</span></label> <br>
-                <input type="text" id="cep" inputmode="numeric" maxlength="8" placeholder="Apenas Números Ex: 01001000 "
-                    class="cep-inputs"> <br><br>
-                <div class="dados-entrega">
-                    <div class="inputs-posicao">
-                        <div>
-                            <label for="rua">Rua | Avenida </label> <br>
-                            <input type="text" id="rua" class="dados-entrega-inputs"><br><br>
+            <div class="entrega">
+                <div class="form-entrega">
+                    <form action="">
+                        <label for="cep">Digite seu CEP:<br> <span class="info-cep">Preenchimento
+                                automático*</span></label>
+                        <br>
+                        <input type="text" id="cep" inputmode="numeric" maxlength="8"
+                            placeholder="Apenas Números Ex: 01001000 " class="cep-inputs"> <br><br>
+                        <div class="dados-entrega">
+                            <div class="inputs-posicao">
+                                <div>
+                                    <label for="rua">Rua | Avenida </label> <br>
+                                    <input type="text" id="rua" class="dados-entrega-inputs"><br><br>
+                                </div>
+                                <div>
+                                    <label for="numero">Número:</label> <br>
+                                    <input type="text" id="numero" class="dados-entrega-inputs"><br><br>
+                                </div>
+                            </div>
+                            <div class="inputs-posicao">
+                                <div>
+                                    <label for="numero">Complemento:</label> <br>
+                                    <input type="text" id="complemento" class="dados-entrega-inputs"><br><br>
+                                </div>
+                                <div>
+                                    <label for="numero">Bairro:</label> <br>
+                                    <input type="text" id="bairro" class="dados-entrega-inputs"><br><br>
+                                </div>
+                            </div>
+                            <div class="inputs-posicao">
+                                <div>
+                                    <label for="numero">Cidade:</label> <br>
+                                    <input type="text" id="cidade" class="dados-entrega-inputs"><br><br>
+                                </div>
+                                <div>
+                                    <label for="numero">Estado:</label> <br>
+                                    <input type="text" id="estado" class="dados-entrega-inputs"><br><br>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <label for="numero">Número:</label> <br>
-                            <input type="text" id="numero" class="dados-entrega-inputs"><br><br>
+                    </form>
+                </div>
+                <hr>
+                <div class="form-entrega">
+                    <fieldset class="metodos-pagamento">
+                        <legend>Escolha o Metódo</legend>
+                        <div class="metodos-pagamento-opcoes">
+                            <input type="radio" value="cc" class="metodo" id="cartao-credito" name="metodos-pagamento"
+                                required>
+                            <label class="label-pagamamento" for="cartao-credito">CARTÃO DE CRÉDITO</label>
                         </div>
+                        <div class="metodos-pagamento-opcoes">
+                            <input type="radio" value="pe" class="metodo" id="pagamento-entrega"
+                                name="metodos-pagamento">
+                            <label class="label-pagamamento" for="pagamento-entrega"> PAGAMENTO NA ENTREGA</label>
+                        </div>
+                        <div class="metodos-pagamento-opcoes">
+                            <input type="radio" value="pi" class="metodo" id="pix" name="metodos-pagamento"> <label
+                                class="label-pagamamento" for="pix">PIX</label>
+                        </div>
+                    </fieldset>
+                    <div class="metodo-escolhido">
+
                     </div>
-                    <div class="inputs-posicao">
-                        <div>
-                            <label for="numero">Complemento:</label> <br>
-                            <input type="text" id="complemento" class="dados-entrega-inputs"><br><br>
+
+
+                </div>
+                <div class="resumo-da-compra">
+                    <h2>Resumo da Compra</h2>
+
+                    <div class="resumo-da-compra-infos">
+                        <p class="valor-frete"> Frete Fixo R$5,00</p>
+                        <div class="resumo-da-compra-infos-title">
+                            <h5>Quantidade de Itens</h5>
+                            <h3>Total do Pedido</h3>
                         </div>
-                        <div>
-                            <label for="numero">Bairro:</label> <br>
-                            <input type="text" id="bairro" class="dados-entrega-inputs"><br><br>
+                        <div class="quantidade-de-itens">
+                            <div>
+                                <span class="subtotal-itens"></span>
+                            </div>
+                            <span class="subtotal"></span>
                         </div>
-                    </div>
-                    <div class="inputs-posicao">
-                        <div>
-                            <label for="numero">Cidade:</label> <br>
-                            <input type="text" id="cidade" class="dados-entrega-inputs"><br><br>
-                        </div>
-                        <div>
-                            <label for="numero">Estado:</label> <br>
-                            <input type="text" id="estado" class="dados-entrega-inputs"><br><br>
-                        </div>
+                        <a href="../paginas/pagamento.html">
+                            <div class="btn-finalizar-pedido">FINALIZAR PEDIDO</div>
+                        </a>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </main>
     <footer>

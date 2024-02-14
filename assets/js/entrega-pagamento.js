@@ -10,6 +10,12 @@ const formEntrega = document.querySelector("form");
 const dadosEntrega = document.querySelector(".dados-entrega");
 const inputs = document.querySelectorAll(".dados-entrega-inputs");
 
+const totalItens = document.querySelector(".subtotal-itens");
+const totalValor = document.querySelector(".subtotal");
+
+const metodo = document.querySelector(".metodo-escolhido");
+const inputMetodo = document.querySelectorAll("input[type=radio");
+
 /* Permite que apenas números sejam digitados no input de CEP.
 Ao digitar 8 digitos ele perde o "foco" exibe os demais inputs com auto preenchimento */
 cep.addEventListener("keyup", () => {
@@ -53,4 +59,37 @@ cep.addEventListener("blur", () => {
     validaDados.value = "";
   }
   getData(cep.value);
+});
+
+//Validação do metódo de pagamento escolhido.
+
+for (let input of inputMetodo) {
+  input.addEventListener("click", () => {
+    if (input.value === "cc") {
+      metodo.innerHTML = "Pagamento com Cartão";
+    } else if (input.value === "pe") {
+      metodo.innerHTML = `Pagamento será efetivado na entrega. O entregador levará a maquininha.<br> será aceitos Dinheiro | Cartão de Crédido | Cartão de Débito`;
+    } else if (input.value === "pi") {
+      metodo.innerHTML = `<div class="pix-chave">
+      <div id="pix-chave">
+      <img src="../assets/img/qr-code.jpg" alt="QR Code" width="200" heigth="200">
+      PIXa8fef2502b61fae87ec7cd905fb1c761a8fef2502b61fae87ec7cd905fb1c7611bf66aa331ed7c4d2fa4b5b254fd5dfd
+      </div>
+  </div>
+  <button onclick="copiarTexto()">COPIAR PIX</button>`;
+    }
+  });
+}
+
+function copiarTexto() {
+  const pix = document.querySelector("#pix-chave");
+  navigator.clipboard.writeText(pix.innerText);
+  alert("ok");
+}
+
+totalItens.innerText = carrinhoFinalizadoValores.quantidadeItensFinal;
+const totalValorFinal = parseFloat(carrinhoFinalizadoValores.subtotalFinal) + 5;
+totalValor.innerHTML = totalValorFinal.toLocaleString("pt-BR", {
+  style: "currency",
+  currency: "BRL",
 });

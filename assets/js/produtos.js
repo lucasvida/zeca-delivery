@@ -133,8 +133,8 @@ function filtraPorCategoria(categoriaSelecionada) {
   grid.innerHTML = "";
 
   const produtosFiltrados = categoriaSelecionada
-  ? produtos.filter((produto) => produto.categoria === categoriaSelecionada)
-  : produtos;
+    ? produtos.filter((produto) => produto.categoria === categoriaSelecionada)
+    : produtos;
 
   produtosFiltrados.forEach((produto) => renderizaProduto(produto));
 }
