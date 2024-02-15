@@ -166,7 +166,7 @@
                         <legend>Escolha o Metódo</legend>
                         <div class="metodos-pagamento-opcoes">
                             <input type="radio" value="cc" class="metodo" id="cartao-credito" name="metodos-pagamento"
-                                required>
+                                required checked>
                             <label class="label-pagamamento" for="cartao-credito">CARTÃO DE CRÉDITO</label>
                         </div>
                         <div class="metodos-pagamento-opcoes">
@@ -180,10 +180,20 @@
                         </div>
                     </fieldset>
                     <div class="metodo-escolhido">
-
+                        <div class="cartao-credito">
+                            <input type="text" id="numero-cc" inputmode="numeric" placeholder="Número do Cartão" class="input-maior data-cc" maxlength="19">
+                            <input type="text" id="nome-cc" placeholder="Número do Titular" class="input-maior" >
+                            <div class="cartao-extra-info">
+                                <div>
+                                    <input type="text" id="cvv-cc" placeholder="CVV" class="input-menor data-cc" maxlength="3">
+                                </div>
+                                <div>
+                                    <input type="text" id="mes-cc" placeholder="Mês (MM)" inputmode="numeric" class="input-menor data-cc" maxlength="2">/
+                                    <input type="text" id="ano-cc" placeholder="Ano (AA)" inputmode="numeric" class="input-menor data-cc" maxlength="2">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
                 <div class="resumo-da-compra">
                     <h2>Resumo da Compra</h2>

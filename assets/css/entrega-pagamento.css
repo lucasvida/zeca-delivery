@@ -65,6 +65,10 @@
     .dados-entrega-validacao{
         background-color: #64748b2b;
     }
+
+    .valor-frete{
+        visibility: hidden;
+    }
 }
 
 @layer pagamento{
@@ -159,9 +163,95 @@
         background-color: var(--cor-amarelo);
     }
 
+    .cartao-credito{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .cartao-credito input{
+        text-align: center;
+        font-weight: bolder;
+    }
+
+    .cartao-extra-info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input-maior{
+        width:100%;
+        margin-top: 15px;
+        padding: 5px;
+        border-radius: 15px;
+        border: solid 1px black;
+    }
+
+    .input-menor{
+        width: 25%;
+        margin-top: 15px;
+        padding: 5px;
+        border-radius: 15px;
+        border: solid 1px black;
+    }
+
+    .input-menor::placeholder{
+        text-align: center;
+    }
+
     .pix-chave{
         width: 85%;
         overflow-wrap: break-word;
+        text-align: center;
+        line-height: 1.5em;
+        padding: 15px;
+    }
+
+    .pix-btn{
+        background-color: var(--cor-menu);
+        color: var(--cor-amarelo);
+        padding: 10px;
+        border-radius: 20px;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+        font-weight: bolder;
     }
     
+}
+
+@media screen and (max-width:600px){
+    .entrega{
+        flex-direction: column;
+    }
+
+    .form-entrega{
+        width: 80%;
+    }
+
+    .inputs-posicao{
+        flex-direction: column;
+    }
+
+    .metodos-pagamento{
+        width: 125%;
+    }
+
+    .input-menor{
+        width:38%;
+    }
+
+    .pagamento-entrega{
+        font-size: 0.8em;
+    }
+
+    .resumo-da-compra{
+        font-size: 0.8em;
+    }
+
+    .dados-entrega{
+        display: none;
+    }
 }
