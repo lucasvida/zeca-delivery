@@ -298,15 +298,6 @@ html{
     }
 }
 
-/* Ajustar inputs Tipo Number*/
-
-/* Chrome e outros */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* Firefox */
 
 @layer mobile {
 
@@ -318,6 +309,11 @@ input::-webkit-inner-spin-button {
 
         .logo{
             display: none;
+        }
+
+        h1{
+            font-size: 1.5em;
+            text-align: center;
         }
         @layer menu {
             .menu-principal{

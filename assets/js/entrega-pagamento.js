@@ -88,7 +88,7 @@ for (let input of inputMetodo) {
     if (input.value === "cc") {
       metodo.innerHTML = `<div class="cartao-credito">
       <input type="text" id="numero-cc" inputmode="numeric" placeholder="Número do Cartão" class="input-maior data-cc" maxlength="19">
-      <input type="text" id="nome-cc" placeholder="Número do Titular" class="input-maior" >
+      <input type="text" id="nome-cc" placeholder="Nome do Titular" class="input-maior" >
       <div class="cartao-extra-info">
           <div>
               <input type="text" id="cvv-cc" placeholder="CVV" class="input-menor data-cc" maxlength="3">
@@ -120,7 +120,7 @@ for (let input of inputMetodo) {
     dadosCartao.value = dadosCartao.value.replace(/\D/g, '').replace(/(\d{4})(?=\d)/g, '$1 ');
   });
   }
-
+ 
 function copiarTexto() {
   const pix = document.querySelector("#pix-chave");
   navigator.clipboard.writeText(pix.innerText);
