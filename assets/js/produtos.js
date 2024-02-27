@@ -75,6 +75,10 @@ let produtos = [
 
 let carrinho = [];
 const grid = document.querySelector(".produtos");
+const iconeCarrinho = document.querySelector(".icone-carrinho-fixo");
+const labelQuantidadeCarrinho = document.querySelector(
+  ".label-quantidade-carrinho"
+);
 
 function renderizaProduto(produto) {
   let criaEl = document.createElement("div");
@@ -104,6 +108,8 @@ function renderizaProduto(produto) {
     });
 
     atualizaCarrinho();
+    iconeCarrinho.style.display = "block";
+    labelQuantidadeCarrinho.innerText = carrinho.length;
 
     Swal.fire({
       position: "top-end",

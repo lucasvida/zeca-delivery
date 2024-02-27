@@ -1,4 +1,16 @@
 @layer carrinho-compras{
+    .carrinho-vazio{
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 650px;
+        margin-bottom: 50px;
+    }
+
+    .carrinho-vazio a{
+        text-decoration: none;
+    }
     .carrinho-compras{
         display: flex;
         justify-content: space-between;

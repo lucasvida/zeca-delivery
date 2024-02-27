@@ -9,12 +9,19 @@ const carrinhoCompras = document.querySelector(".itens-carrinho");
 const subtotal = document.querySelector(".subtotal");
 const subtotalItens = document.querySelector(".subtotal-itens");
 const itensCarrinhoQuantidade = document.querySelector(".icone-carrinho");
+const carrinhoVazio = document.querySelector(".carrinho-vazio");
+const carrinhoComprasDiv = document.querySelector(".carrinho-compras");
 let somaPrecos = 0;
 let totalItens = 0;
 let novoTotalDesc;
 
 window.addEventListener("load", () => {
-  carrinhoGerado != null ? renderizaCarrinho() : alert("vazio");
+  if (carrinhoGerado != null) {
+    renderizaCarrinho();
+  } else {
+    carrinhoVazio.style.display = "flex";
+    carrinhoComprasDiv.style.display = "none";
+  }
 });
 
 function renderizaCarrinho() {

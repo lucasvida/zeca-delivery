@@ -1,0 +1,29 @@
+@layer catalogo{
+    .icone-carrinho-catalogo{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .icone-carrinho-fixo{
+        display: none;
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 5;
+    }
+    
+    .label-quantidade-carrinho{
+        display: flex;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: red;
+        color: #FFF;
+        font-weight: bolder;
+        padding: 5px;
+    }
+}
