@@ -1,3 +1,5 @@
+/* PRODUTOS COMO OBJETO - ORIGINAL
+
 let produtos = [
   {
     id: "01",
@@ -73,6 +75,8 @@ let produtos = [
   },
 ];
 
+*/
+
 let carrinho = [];
 const grid = document.querySelector(".produtos");
 const iconeCarrinho = document.querySelector(".icone-carrinho-fixo");
@@ -80,7 +84,45 @@ const labelQuantidadeCarrinho = document.querySelector(
   ".label-quantidade-carrinho"
 );
 
+//Acessando os produtos como JSON:
+
+async function getData(){
+  try{
+      const url = await fetch('../assets/json/produtos.json');
+      const dados = await url.json();
+
+      function filtraPorCategoria(categoriaSelecionada) {
+        grid.innerHTML = "";
+      
+        const produtosFiltrados = categoriaSelecionada
+          ? dados.filter((produto) => produto.categoria === categoriaSelecionada)
+          : dados;
+      
+        produtosFiltrados.forEach((produto) => renderizaProduto(produto));
+      }
+      
+      dados.forEach(function (produto) {
+        renderizaProduto(produto);
+      });
+      
+      document
+        .getElementById("filtroCategoria")
+        .addEventListener("change", function (event) {
+          const categoriaSelecionada = event.target.value;
+          filtraPorCategoria(categoriaSelecionada);
+        });
+      
+
+  } catch(e){
+      grid.innerHTML = "<h2>Não foi possível acessar os produtos"
+  }
+}
+
+getData();
+
+
 function renderizaProduto(produto) {
+
   let criaEl = document.createElement("div");
   criaEl.innerHTML = `
       <img src="${produto.imagem}" alt="${produto.nome}">
@@ -126,32 +168,29 @@ function atualizaCarrinho() {
   sessionStorage.setItem("carrinho", carrinhoArmazenado);
 }
 
-/* Lais pelo o que eu vi esse trecho de código estava carregando
-os produtos 2x */
 
-// for (let i of produtos) {
-//     renderizaProduto(i);
+// // função o filtro - ORIGINAL
+
+// function filtraPorCategoria(categoriaSelecionada) {
+//   grid.innerHTML = "";
+
+//   const produtosFiltrados = categoriaSelecionada
+//     ? produtos.filter((produto) => produto.categoria === categoriaSelecionada)
+//     : produtos;
+
+//   produtosFiltrados.forEach((produto) => renderizaProduto(produto));
 // }
 
-// função o filtro
+// produtos.forEach(function (produto) {
+//   renderizaProduto(produto);
+// });
 
-function filtraPorCategoria(categoriaSelecionada) {
-  grid.innerHTML = "";
+// document
+//   .getElementById("filtroCategoria")
+//   .addEventListener("change", function (event) {
+//     const categoriaSelecionada = event.target.value;
+//     filtraPorCategoria(categoriaSelecionada);
+//   });
 
-  const produtosFiltrados = categoriaSelecionada
-    ? produtos.filter((produto) => produto.categoria === categoriaSelecionada)
-    : produtos;
 
-  produtosFiltrados.forEach((produto) => renderizaProduto(produto));
-}
 
-produtos.forEach(function (produto) {
-  renderizaProduto(produto);
-});
-
-document
-  .getElementById("filtroCategoria")
-  .addEventListener("change", function (event) {
-    const categoriaSelecionada = event.target.value;
-    filtraPorCategoria(categoriaSelecionada);
-  });
