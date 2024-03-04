@@ -86,53 +86,54 @@ const labelQuantidadeCarrinho = document.querySelector(
 
 //Acessando os produtos como JSON:
 
-async function getData(){
-  try{
-      const url = await fetch('../assets/json/produtos.json');
-      const dados = await url.json();
+async function getData() {
+  try {
+    const url = await fetch("../assets/json/produtos.json");
+    const dados = await url.json();
 
-      function filtraPorCategoria(categoriaSelecionada) {
-        grid.innerHTML = "";
-      
-        const produtosFiltrados = categoriaSelecionada
-          ? dados.filter((produto) => produto.categoria === categoriaSelecionada)
-          : dados;
-      
-        produtosFiltrados.forEach((produto) => renderizaProduto(produto));
-      }
-      
-      dados.forEach(function (produto) {
-        renderizaProduto(produto);
+    function filtraPorCategoria(categoriaSelecionada) {
+      grid.innerHTML = "";
+
+      const produtosFiltrados = categoriaSelecionada
+        ? dados.filter((produto) => produto.categoria === categoriaSelecionada)
+        : dados;
+
+      produtosFiltrados.forEach((produto) => renderizaProduto(produto));
+    }
+
+    dados.forEach(function (produto) {
+      renderizaProduto(produto);
+    });
+
+    document
+      .getElementById("filtroCategoria")
+      .addEventListener("change", function (event) {
+        const categoriaSelecionada = event.target.value;
+        filtraPorCategoria(categoriaSelecionada);
       });
-      
-      document
-        .getElementById("filtroCategoria")
-        .addEventListener("change", function (event) {
-          const categoriaSelecionada = event.target.value;
-          filtraPorCategoria(categoriaSelecionada);
-        });
-      
-
-  } catch(e){
-      grid.innerHTML = "<h2>Não foi possível acessar os produtos"
+  } catch (e) {
+    grid.innerHTML = "<h2>Não foi possível acessar os produtos";
   }
 }
 
 getData();
 
-
 function renderizaProduto(produto) {
-
   let criaEl = document.createElement("div");
+  criaEl.classList.add("produtos-card");
   criaEl.innerHTML = `
       <img src="${produto.imagem}" alt="${produto.nome}">
-      <b>${produto.nome}</b><br>
-      Categoria: ${produto.categoria}<br>
+      <div class="produto-nome">${produto.nome}</div>
+      <div class="categoria">Categoria: ${produto.categoria} <br> <em> ${
+    produto.sku
+  }</em></div>
+      <div class="produto-preco">
       ${produto.preco.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
       })}<br>
-      <button> Comprar </button>
+      </div>
+      <button class="cta-comprar"> Comprar </button>
   `;
 
   grid.append(criaEl);
@@ -168,7 +169,6 @@ function atualizaCarrinho() {
   sessionStorage.setItem("carrinho", carrinhoArmazenado);
 }
 
-
 // // função o filtro - ORIGINAL
 
 // function filtraPorCategoria(categoriaSelecionada) {
@@ -191,6 +191,3 @@ function atualizaCarrinho() {
 //     const categoriaSelecionada = event.target.value;
 //     filtraPorCategoria(categoriaSelecionada);
 //   });
-
-
-

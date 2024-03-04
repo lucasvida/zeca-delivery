@@ -1,0 +1,14 @@
+ [
+    {
+      "desconto": "10OFF",
+      "valor": 10
+    },
+    {
+      "desconto": "15OFF",
+      "valor": 15
+    },
+    {
+      "desconto": "20OFF",
+      "valor": 20
+    }
+  ]

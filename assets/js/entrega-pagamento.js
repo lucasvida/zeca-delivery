@@ -18,9 +18,8 @@ const inputMetodo = document.querySelectorAll("input[type=radio");
 
 const cartaoNumero = document.querySelectorAll(".data-cc");
 
-const valorFrete = document.querySelector('.valor-frete');
+const valorFrete = document.querySelector(".valor-frete");
 let totalValorFinal = parseFloat(carrinhoFinalizadoValores.subtotalFinal);
-
 
 /* Permite que apenas números sejam digitados no input de CEP.
 Ao digitar 8 digitos ele perde o "foco" exibe os demais inputs com auto preenchimento */
@@ -73,13 +72,12 @@ async function getData(cep) {
       totalValor.innerHTML = totalValorFinal.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
-     });
+      });
     }
   } catch (erro) {
     console.log(erro);
   }
 }
-
 
 //Validação do metódo de pagamento escolhido.
 
@@ -100,7 +98,7 @@ for (let input of inputMetodo) {
       </div>
   </div>`;
     } else if (input.value === "pe") {
-      metodo.innerHTML = `<div class="pagamento-entrega">Pagamento será efetivado na entrega. O entregador levará a maquininha. Será aceito Dinheiro | Cartão de Crédido | Cartão de Débito.</div>`;
+      metodo.innerHTML = `<div class="pagamento-entrega">Pagamento será efetivado na entrega. O entregador levará a maquininha. Será aceito Dinheiro | Cartão de Crédito | Cartão de Débito.</div>`;
     } else if (input.value === "pi") {
       metodo.innerHTML = `<div class="pix-chave">
       <img src="../assets/img/qr-code.jpg" alt="QR Code">
@@ -114,13 +112,14 @@ for (let input of inputMetodo) {
   });
 }
 
-  for (let dadosCartao of cartaoNumero){
-    dadosCartao.addEventListener("keyup", ()=>
-  {
-    dadosCartao.value = dadosCartao.value.replace(/\D/g, '').replace(/(\d{4})(?=\d)/g, '$1 ');
+for (let dadosCartao of cartaoNumero) {
+  dadosCartao.addEventListener("keyup", () => {
+    dadosCartao.value = dadosCartao.value
+      .replace(/\D/g, "")
+      .replace(/(\d{4})(?=\d)/g, "$1 ");
   });
-  }
- 
+}
+
 function copiarTexto() {
   const pix = document.querySelector("#pix-chave");
   navigator.clipboard.writeText(pix.innerText);

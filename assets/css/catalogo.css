@@ -27,3 +27,143 @@
         padding: 5px;
     }
 }
+
+@layer produtos{
+    .listagem-produtos{
+        display: flex;
+        justify-content:space-between;
+        align-items:flex-start;
+    }
+
+    .filtro-produtos{
+        width: 25%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--cor-amarelo);
+        border-radius: 25px;
+        margin-bottom: 50px;
+        height: 100vh;
+    }
+
+    .filtro-produtos select{
+        width: 85%;
+        cursor: pointer;
+        padding: 15px;
+        background-color: black;
+        font-size: 1em;
+        text-transform: uppercase;
+        border-radius: 15px;
+        border: none;
+        font-family: var(--font-principal);
+        color: var(--cor-amarelo);
+    }
+
+
+    .produtos{
+        width: 70%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .produtos-card{
+        width: 15%;
+        min-height: px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: solid 1px black;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .produtos-card img{
+        width: 150px;
+        height: 150px;
+        padding: 20px;
+    }
+
+
+    .produto-preco{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 100%;
+        height: 35px;
+    }
+
+    .produto-nome{
+        width: 100%;
+        height: 35px;
+        font-size: 0.85em;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+
+    .categoria{
+        font-size: 0.75em;
+        width: 100%;
+        height: 35px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .cta-comprar{
+        font-size: 1.2em;
+        color: var(--cor-amarelo);
+        text-transform: uppercase;
+        background-color: black;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        font-family: var(--font-principal);
+    }
+}
+
+@media screen and (max-width:600px) {
+
+    .listagem-produtos{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filtro-produtos{
+        width: 100%;
+       height: 150px;
+       margin-bottom: 0px;
+    }
+
+    .filtro-produtos select{
+        width: 85%;
+        cursor: pointer;
+        padding: 15px;
+        background-color: black;
+        font-size: 0.75em;
+        text-transform: uppercase;
+        border-radius: 15px;
+        border: none;
+        font-family: var(--font-principal);
+        color: var(--cor-amarelo);
+    }
+
+    .produtos{
+        width: 100%;
+        justify-content: space-between;
+        gap: 5px;
+    }
+
+    .produtos-card{
+        width: 140px;
+    }
+
+    .produtos-card img{
+        width: 100%;
+        padding: 2px;
+    }
+}

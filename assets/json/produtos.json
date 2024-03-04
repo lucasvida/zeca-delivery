@@ -70,6 +70,114 @@
       "categoria": "Mercearia",
       "imagem": "../assets/img/produtos/pacote-carvao-3-kg.png",
       "quantidade": 1
+    },
+    {
+      "id": "09",
+      "nome": "Refrigerante de Soda - 2L",
+      "sku": "SODA2L",
+      "preco": 7.99,
+      "categoria": "Refrigerante",
+      "imagem": "../assets/img/produtos/refrigerante-soda-2l.png",
+      "quantidade": 1
+    },
+    {
+      "id": "10",
+      "nome": "Pack de Refrigerante - 3 Unidades - 2L",
+      "sku": "PACKREFRI2L",
+      "preco": 19.99,
+      "categoria": "Refrigerante",
+      "imagem": "../assets/img/produtos/pack-refrigerante-3-unidades.png",
+      "quantidade": 1
+    },
+    {
+      "id": "11",
+      "nome": "Vodka Ruskov - 500ml",
+      "sku": "VODKAR500ML",
+      "preco": 39.99,
+      "categoria": "Destilado",
+      "imagem": "../assets/img/produtos/vodka-ruskov-500ml.png",
+      "quantidade": 1
+    },
+    {
+      "id": "12",
+      "nome": "Vodka Importada - 750ml",
+      "sku": "VODKAI750ML",
+      "preco": 79.99,
+      "categoria": "Destilado",
+      "imagem": "../assets/img/produtos/vodka-importada-750ml.png",
+      "quantidade": 1
+    },
+    {
+      "id": "13",
+      "nome": "Vodka Solut - 750ml",
+      "sku": "VODKAS750ML",
+      "preco": 69.99,
+      "categoria": "Destilado",
+      "imagem": "../assets/img/produtos/vodka-solut-750ml.png",
+      "quantidade": 1
+    },
+    {
+      "id": "14",
+      "nome": "Wisky Label - 1L",
+      "sku": "WISKYL1L",
+      "preco": 79.99,
+      "categoria": "Destilado",
+      "imagem": "../assets/img/produtos/wisky-label-1l.png",
+      "quantidade": 1
+    },
+    {
+      "id": "15",
+      "nome": "Wisky Scotch - 1L",
+      "sku": "WISKYS1L",
+      "preco": 89.99,
+      "categoria": "Destilado",
+      "imagem": "../assets/img/produtos/wisky-scotch-1l.png",
+      "quantidade": 1
+    },
+    {
+      "id": "16",
+      "nome": "Gin Tônica - 500ml",
+      "sku": "GINT500ML",
+      "preco": 45.99,
+      "categoria": "Destilado",
+      "imagem": "../assets/img/produtos/gin-tonica-500ml.png",
+      "quantidade": 1
+    },
+    {
+      "id": "16",
+      "nome": "Gin Gilson - 750ml",
+      "sku": "GING750ML",
+      "preco": 72.99,
+      "categoria": "Destilado",
+      "imagem": "../assets/img/produtos/gin-gilson-750ml.png",
+      "quantidade": 1
+    },
+    {
+      "id": "17",
+      "nome": "Pack de Energético - 4 Unidades",
+      "sku": "PACKE4UNID",
+      "preco": 24.99,
+      "categoria": "Mercearia",
+      "imagem": "../assets/img/produtos/pack-energetico-4-unidades.png",
+      "quantidade": 1
+    },
+    {
+      "id": "18",
+      "nome": "Potato Chips - 80g",
+      "sku": "CHIPS80G",
+      "preco": 4.99,
+      "categoria": "Bomboniere",
+      "imagem": "../assets/img/produtos/potato-chips-80g.png",
+      "quantidade": 1
+    },
+    {
+      "id": "19",
+      "nome": "Barra de Chocoloate - 250g",
+      "sku": "CHOCO250G",
+      "preco": 7.99,
+      "categoria": "Bomboniere",
+      "imagem": "../assets/img/produtos/chocolate-barra-250g.png",
+      "quantidade": 1
     }
   ]
   

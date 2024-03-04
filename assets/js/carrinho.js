@@ -92,7 +92,11 @@ function renderizaCarrinho() {
           totalItensSoma();
           aplicaDesconto();
           if (inputQuantidade.value <= 0) {
-            alert("remover");
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "O item será excluído do seu carrinho!",
+            });
           }
         }
       });
@@ -119,54 +123,67 @@ function renderizaCarrinho() {
   }
 }
 
-let descontos = [
-  {
-    desconto: "10OFF",
-    valor: 10,
-  },
-  {
-    desconto: "15OFF",
-    valor: 15,
-  },
-  {
-    desconto: "20OFF",
-    valor: 20,
-  },
-];
+// let descontos = [
+//   {
+//     desconto: "10OFF",
+//     valor: 10,
+//   },
+//   {
+//     desconto: "15OFF",
+//     valor: 15,
+//   },
+//   {
+//     desconto: "20OFF",
+//     valor: 20,
+//   },
+// ];
 
 //Verifica Cupom de Desconto
 const cupomDesconto = document.querySelector("#input-cupom-desconto");
 const btnCupomDesconto = document.querySelector("#btn-cupom-desconto");
 
-function aplicaDesconto() {
-  for (promo of descontos) {
-    if (promo.desconto === cupomDesconto.value.toUpperCase()) {
-      novoTotal = (somaPrecos * promo.valor) / 100;
-      let novoTotalDesc = somaPrecos - Math.floor(novoTotal);
-      alert("Cupom Aplicado com Sucesso");
-      subtotal.innerHTML = `<div class="valor-da-compra">
-
-      <span class="preco-antigo">
-      
-      ${somaPrecos.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      })}
-      
-      
-      </span>
-
-      ${novoTotalDesc.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      })}</div>`;
-      carrinhoFinalizado.subtotalFinal = novoTotalDesc;
-      sessionStorage.setItem(
-        "carrinhoFinalizado",
-        JSON.stringify(carrinhoFinalizado)
-      );
-      break; // Se encontrou o produto, não precisa continuar o loop
+async function aplicaDesconto() {
+  try {
+    const baseCupons = await fetch("../assets/json/descontos.json");
+    const descontos = await baseCupons.json();
+    for (promo of descontos) {
+      if (promo.desconto === cupomDesconto.value.toUpperCase()) {
+        novoTotal = (somaPrecos * promo.valor) / 100;
+        let novoTotalDesc = somaPrecos - Math.floor(novoTotal);
+        subtotal.innerHTML = `<div class="valor-da-compra">
+  
+        <span class="preco-antigo">
+        
+        ${somaPrecos.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}
+        
+        
+        </span>
+  
+        ${novoTotalDesc.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}</div>`;
+        carrinhoFinalizado.subtotalFinal = novoTotalDesc;
+        sessionStorage.setItem(
+          "carrinhoFinalizado",
+          JSON.stringify(carrinhoFinalizado)
+        );
+        //Sweet Alert
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Cupom aplicado com sucesso!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        break; // Se encontrou o produto, não precisa continuar o loop
+      }
     }
+  } catch (e) {
+    console.log("Erro" + e);
   }
 }
 
